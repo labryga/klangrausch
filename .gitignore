@@ -1,2 +1,4 @@
+/gulp
+!/gulp/package.json
 *.pyc
 *.swp
