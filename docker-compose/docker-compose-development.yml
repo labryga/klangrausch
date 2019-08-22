@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  klangrausch_nginx:
+    build:
+      context: ../nginx/
+      dockerfile: nginx.development.Dockerfile
+    networks:
+      klangrausch_network_development:
+        ipv4_address: 172.16.77.10
+
+
+networks:
+  klangrausch_network_development:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.77.0/24
