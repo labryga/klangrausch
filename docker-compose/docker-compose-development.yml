@@ -4,7 +4,7 @@ services:
 
   klangrausch_nginx:
     build:
-      context: ../nginx/
+      context: ../
       dockerfile: nginx.development.Dockerfile
     networks:
       klangrausch_network_development:

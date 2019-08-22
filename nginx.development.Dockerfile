@@ -1,4 +1,4 @@
-FROM nginx:1.15-alpine
+FROM nginx:1.16.1-alpine
 
 RUN apk add shadow
 RUN groupadd -g 5432 topos
