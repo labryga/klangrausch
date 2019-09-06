@@ -1,7 +1,13 @@
-
 version: "3"
 
 services:
+
+  klangrausch_django:
+    build:
+      context: ../
+      dockerfile: django.development.Dockerfile
+      env_file:
+        - .env.facelock_django
 
   klangrausch_nginx:
     build:
