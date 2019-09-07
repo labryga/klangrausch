@@ -10,7 +10,8 @@ RUN apk update && \
     apk add postgresql-dev && pip install psycopg2
 
 RUN groupadd -g 5432 topos
-RUN chmod -R root:topos /klangrausch
+RUN chown -R root:topos /klangrausch
+COPY requierments_development.txt .
 RUN pip install -r requierments_development.txt
 
 RUN apk del build-deps

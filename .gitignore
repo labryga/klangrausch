@@ -2,3 +2,4 @@
 !/gulp/package.json
 *.pyc
 *.swp
+.env*
