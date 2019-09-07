@@ -1,5 +1,10 @@
+/*
+!/docker-compose
+!/django
+!/nginx
 /gulp
 !/gulp/package.json
+
 *.pyc
 *.swp
 .env*
