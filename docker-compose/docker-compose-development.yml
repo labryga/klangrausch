@@ -19,6 +19,7 @@ services:
       - .env.klangrausch_django
     volumes:
       - ../django/klangrausch/:/klangrausch/
+    command: gunicorn klangrausch.wsgi:application -b 0.0.0.0:8000
     networks:
       klangrausch_development_network:
         ipv4_address: 172.16.77.12
