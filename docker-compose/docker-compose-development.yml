@@ -6,6 +6,8 @@ services:
     build:
       context: ../nginx/
       dockerfile: nginx.development.Dockerfile
+    volumes:
+      - ../django/klangrausch/:/klangrausch/
     networks:
       klangrausch_development_network:
         ipv4_address: 172.16.77.11
@@ -16,14 +18,14 @@ services:
       context: ../django/
       dockerfile: django.development.Dockerfile
     networks:
-      klangrausch_network_development:
+      klangrausch_development_network:
         ipv4_address: 172.16.77.12
 
   
   klangrausch_postgresql:
-    build: postgres:11.3-alpine
+    image: postgres:11-alpine
     networks:
-      klangrausch_network_development:
+      klangrausch_development_network:
         ipv4_address: 172.16.77.13
 
 
