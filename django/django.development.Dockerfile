@@ -1,6 +1,10 @@
-FROM python:3.6-alpine
+FROM python:3.6-alpine as base
 
+FROM base as builder
+
+RUN mkdir /klangrausch
 WORKDIR /klangrausch
+COPY requierments_development.txt .
 
 ENV PYTHONDONTWRITEBYTECODE = 1
 ENV PYTHONUNBUFFERED = 1
@@ -10,12 +14,11 @@ RUN apk update && \
     build-deps gcc python3-dev \
     musl-dev \
     postgresql-dev && \
-    pip install psycopg2
+    pip install -r requierments_development.txt
 
-RUN groupadd -g 5432 topos
-RUN chown -R root:topos /klangrausch
-COPY requierments_development.txt .
-RUN pip install -r requierments_development.txt
 
 RUN apk del build-deps python3-dev gcc musl-dev \
     postgresql-dev
+
+# RUN groupadd -g 5432 topos
+# RUN chown -R root:topos /klangrausch
