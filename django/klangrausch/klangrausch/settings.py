@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
-SECRET_KEY = 'th5+&hwgu#r6ax$8bor119%v(895@ierhq^#&zze%jpbl1+j6m'
+SECRET_KEY = os.environt.get("DJANGO_SECRET_KEY")
 
 DEBUG = True
 
