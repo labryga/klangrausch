@@ -21,9 +21,8 @@ RUN apk del build-deps python3-dev gcc musl-dev \
 
 FROM base
 COPY --from=builder /install /usr/local
+RUN apk --no-cache add libpq
 WORKDIR /klangrausch
-
-
 
 # RUN groupadd -g 5432 topos
 # RUN chown -R root:topos /klangrausch

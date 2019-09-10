@@ -2,8 +2,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-
 SECRET_KEY = os.environ.get("DJANGO_SECRETKEY")
 
 DEBUG = True
@@ -53,8 +51,12 @@ WSGI_APPLICATION = 'klangrausch.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get("DJANGO_POSTGRES_DATABASE"),
+        'USER': os.environ.get("DJANGO_POSTGRES_USER"),
+        'PASSWORD': os.environ.get("DJANGO_POSTGRES_PASSWORD"),
+        'HOST': os.environ.get("DJANGO_POSTGRES_HOST"),
+        'PORT': os.environ.get("DJANGO_POSTGRES_PORT"),
     }
 }
 
@@ -73,8 +75,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 
 LANGUAGE_CODE = 'en-us'
 

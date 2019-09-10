@@ -1,4 +1,4 @@
+psycopg2
 django==2.2.5
 gunicorn
 pypugjs
-psycopg2
