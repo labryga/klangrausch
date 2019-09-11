@@ -34,7 +34,11 @@ services:
     #   klangrausch_network_development:
     #     ipv4_address: 172.16.77.13
 
-    klangrausch_gulp:
+
+  klangrausch_gulp:
+    build:
+      context: ../gulp/
+      dockerfile: gulp.development.Dockerfile
 
 
 networks:
