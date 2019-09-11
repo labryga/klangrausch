@@ -6,7 +6,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRETKEY")
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["172.16.77.11"]
+ALLOWED_HOSTS = ["172.16.77.11", "192.168.99.100"]
 
 
 INSTALLED_APPS = [
@@ -41,6 +41,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+        'loaders': [
+            ('pypugjs.ext.django.Loader', (
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',))
+            ],
+        'builtins': [
+                'pypugjs.ext.django.templatetags',
             ],
         },
     },
