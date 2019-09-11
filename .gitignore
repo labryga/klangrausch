@@ -2,9 +2,10 @@
 !/docker-compose
 !/django
 !/nginx
-/gulp
-!/gulp/package.json
 
+!/gulp
+/gulp/*
+!/gulp/*.Dockerfile
 *.pyc
 *.swp
 .env*
