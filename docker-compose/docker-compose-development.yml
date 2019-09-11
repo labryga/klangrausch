@@ -21,29 +21,15 @@ services:
     volumes:
       - ../django/klangrausch/:/klangrausch/
     command: gunicorn klangrausch.wsgi:application -b 0.0.0.0:8000
-    # networks:
-    #   klangrausch_network_development:
-    #     ipv4_address: 172.16.77.12
-    #
   
+
   klangrausch_postgresql:
     image: postgres:11-alpine
     env_file:
       - .env.klangrausch_postgresql
-    # networks:
-    #   klangrausch_network_development:
-    #     ipv4_address: 172.16.77.13
 
 
   klangrausch_gulp:
     build:
       context: ../gulp/
       dockerfile: gulp.development.Dockerfile
-
-
-networks:
-  klangrausch_network_development:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.16.77.0/24"
