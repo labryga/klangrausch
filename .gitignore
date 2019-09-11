@@ -3,6 +3,7 @@
 !/django
 !/nginx
 !/gulp
+/gulp/klangrausch/node_modules/
 
 *.pyc
 *.swp
