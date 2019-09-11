@@ -2,11 +2,8 @@
 !/docker-compose
 !/django
 !/nginx
-
 !/gulp
-/gulp/*
-!/gulp/*.Dockerfile
-!/gulp/klangrausch/
+
 *.pyc
 *.swp
 .env*

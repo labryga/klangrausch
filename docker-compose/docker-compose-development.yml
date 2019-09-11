@@ -28,8 +28,11 @@ services:
     env_file:
       - .env.klangrausch_postgresql
 
-
+  
   klangrausch_gulp:
     build:
       context: ../gulp/
       dockerfile: gulp.development.Dockerfile
+    volumes:
+      - ../gulp/klangrausch/:/klangrausch/
+    command: sh -c "npm install && gulp watch"
