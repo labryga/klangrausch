@@ -36,4 +36,5 @@ services:
     volumes:
       - ../gulp/klangrausch/:/klangrausch/
       - ../statifiles/css/:/staticfiles/css/
+      - ../statifiles/js/:/statifiles/js/
     command: watch
