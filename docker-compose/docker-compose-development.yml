@@ -35,4 +35,5 @@ services:
       dockerfile: gulp.development.Dockerfile
     volumes:
       - ../gulp/klangrausch/:/klangrausch/
+      - ../statifiles/css/:/staticfiles/css/
     command: watch
