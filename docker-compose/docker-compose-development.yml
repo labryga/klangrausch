@@ -35,4 +35,4 @@ services:
       dockerfile: gulp.development.Dockerfile
     volumes:
       - ../gulp/klangrausch/:/klangrausch/
-    command: sh -c "npm install && gulp watch"
+    command: watch
