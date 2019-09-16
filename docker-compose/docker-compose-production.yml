@@ -27,15 +27,3 @@ services:
     image: postgres:11-alpine
     env_file:
       - .env.klangrausch_postgresql
-
-  
-  klangrausch_gulp:
-    build:
-      context: ../gulp/
-      dockerfile: gulp.development.Dockerfile
-    volumes:
-      - ../gulp/klangrausch/:/klangrausch/ # gulpfile
-      - ../statifiles/css/:/staticfiles/css/
-      - ../statifiles/js/:/statifiles/js/
-      - ../statifiles/img/:/statifiles/img/
-    command: watch
