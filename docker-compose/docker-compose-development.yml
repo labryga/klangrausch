@@ -16,6 +16,9 @@ services:
     build:
       context: ../django/
       dockerfile: django.development.Dockerfile
+      args:
+        host_user_name: "${host_user_name}"
+        host_user_id: "${host_user_id}"
     env_file:
       - .env.klangrausch_django
     volumes:
