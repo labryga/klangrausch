@@ -11,4 +11,4 @@ RUN apk update && \
     npm audit fix && \
     npm cache clean --force
 
-ENTRYPOINT ["gulp"]
+ENTRYPOINT ["/bin/sh"]

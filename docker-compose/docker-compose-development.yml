@@ -34,7 +34,6 @@ services:
       context: ../gulp/
       dockerfile: gulp.development.Dockerfile
     volumes:
-      - ../gulp/klangrausch/:/klangrausch/ # gulpfile
       - ../statifiles/css/:/staticfiles/css/
       - ../statifiles/js/:/statifiles/js/
       - ../statifiles/img/:/statifiles/img/
