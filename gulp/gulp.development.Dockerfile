@@ -18,10 +18,11 @@ RUN apk update && apk add --virtual --no-cache \
   npm audit fix && \
   npm cache clean --force && \
   cp -Rv node_modules/ /klangrausch_modules/ && \
-  rm -R node_modules/ && \
-  adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name" && \
-  chown -R "$user_id":"$user_id" "$(pwd)" && \
-  apk del shadow
+  rm -Rv ./node_modules
+
+RUN adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name"
+RUN chown -R "$user_id":"$user_id" "$(pwd)"
+RUN apk del shadow
 
 
 ENV NODE_PATH=/klangrausch_modules/node_modules

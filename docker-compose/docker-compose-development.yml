@@ -36,6 +36,9 @@ services:
     build:
       context: ../gulp/
       dockerfile: gulp.development.Dockerfile
+      args:
+        host_user_name: "$host_user_name"
+        host_user_id: "$host_user_id"
     volumes:
       - ../statifiles/css/:/staticfiles/css/
       - ../statifiles/js/:/staticfiles/js/
