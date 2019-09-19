@@ -2,6 +2,12 @@ FROM node:10.16.3-alpine
 
 RUN mkdir /klangrausch_modules
 
+ARG host_user_name
+ARG host_user_id
+
+ENV user_name=$host_user_name
+ENV user_id=$host_user_id
+
 WORKDIR /klangrausch
 
 COPY klangrausch/ .

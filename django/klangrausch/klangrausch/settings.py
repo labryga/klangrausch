@@ -6,8 +6,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRETKEY")
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.56.66", "192.168.219.155", "172.18.0.1", "172.16.77.11", "192.168.99.100"]
-
+ALLOWED_HOSTS = ["192.168.56.66", "192.168.219.155", "172.17.0.1", "172.16.77.11", "192.168.99.100"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -93,6 +92,5 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 STATIC_URL = '/static/'

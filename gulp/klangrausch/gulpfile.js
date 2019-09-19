@@ -24,7 +24,7 @@ gulp.task('css', () => {
 	.pipe(gulp.dest('../staticfiles/production/'))
 	.pipe(uglifycss())
 	.pipe(rename('facelock.min.css'))
-  .pipe(gulp.dest('../staticfiles/production/'))
+    .pipe(gulp.dest('../staticfiles/production/'))
 	.pipe(livereload());
 });
 
