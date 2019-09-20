@@ -27,4 +27,4 @@ RUN apk del shadow
 
 ENV NODE_PATH=/klangrausch_modules/node_modules
 
-ENTRYPOINT ["gulp"]
+ENTRYPOINT ["gulp", "watch"]
