@@ -5,17 +5,22 @@ FROM base as container_user
 
 ARG host_user_name
 ARG host_user_id
+
 ENV user_name=$host_user_name
 ENV user_id=$host_user_id
-RUN mkdir /klangrausch_modules
-RUN mkdir /klangrausch
+
+RUN mkdir /klangrausch_modules /klangrausch /staticfiles
+
 WORKDIR /klangrausch
+
 RUN apk update && apk add --virtual --no-cache \
   shadow && \
-  npm install -g gulp gulp-cli
-RUN adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name"
-RUN chown -R "$user_id":"$user_id" "$(pwd)" /klangrausch_modules 
-RUN apk del shadow
+  npm install -g gulp gulp-cli && \
+  adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name" && \
+  chown -R "$user_id":"$user_id" \
+  "$(pwd)" /klangrausch_modules /staticfiles && \
+  apk del shadow
+
 ENV NODE_PATH=/klangrausch_modules/node_modules
 
 
