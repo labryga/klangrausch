@@ -13,12 +13,7 @@ services:
 
 
   klangrausch_django:
-    build:
-      context: ../django/
-      dockerfile: django.development.Dockerfile
-      args:
-        host_user_name: "${host_user_name}"
-        host_user_id: "${host_user_id}"
+    image: django_alpine:2.2.5
     env_file:
       - .env.klangrausch_django
     volumes:
@@ -33,14 +28,9 @@ services:
 
 
   klangrausch_gulp:
-    build:
-      context: ../gulp/
-      dockerfile: gulp.development.Dockerfile
-      args:
-        host_user_name: "$host_user_name"
-        host_user_id: "$host_user_id"
+    image: gulp_node_alpine:10.16.3
     volumes:
+      - ../gulp/klangrausch/:/klangrausch/
       - ../statifiles/css/:/staticfiles/css/
       - ../statifiles/js/:/staticfiles/js/
       - ../statifiles/img/:/staticfiles/img/
-    # command: "watch"
