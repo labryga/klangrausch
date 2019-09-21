@@ -1,30 +1,40 @@
-FROM node:10.16.3-alpine
+FROM node:10.16.3-alpine as base
 
-RUN mkdir /klangrausch_modules
+
+FROM base as container_user
 
 ARG host_user_name
 ARG host_user_id
 ENV user_name=$host_user_name
 ENV user_id=$host_user_id
-
+RUN mkdir /klangrausch_modules
+RUN mkdir /klangrausch
 WORKDIR /klangrausch
+RUN apk update && apk add --virtual --no-cache \
+  shadow && \
+  npm install -g gulp gulp-cli
+RUN adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name"
+RUN chown -R "$user_id":"$user_id" "$(pwd)"
+RUN apk del shadow
+ENV NODE_PATH=/klangrausch_modules/node_modules
 
+
+FROM base as builder
+
+RUN mkdir /klangrausch
+WORKDIR /klangrausch
 COPY klangrausch/ .
 
 RUN apk update && apk add --virtual --no-cache \
   shadow && \
-  npm install -g gulp gulp-cli && \
   npm install && \
   npm audit fix && \
-  npm cache clean --force && \
-  cp -Rv node_modules/ /klangrausch_modules/ && \
-  rm -Rv ./node_modules
-
-RUN adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name"
-RUN chown -R "$user_id":"$user_id" "$(pwd)"
-RUN apk del shadow
+  npm cache clean --force
 
 
-ENV NODE_PATH=/klangrausch_modules/node_modules
+FROM container_user
+
+COPY --from=builder \
+  /klangrausch/node_modules /klangrausch_modules/node_modules
 
 ENTRYPOINT ["gulp", "watch"]
