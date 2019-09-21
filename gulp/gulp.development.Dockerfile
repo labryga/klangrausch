@@ -14,7 +14,7 @@ RUN apk update && apk add --virtual --no-cache \
   shadow && \
   npm install -g gulp gulp-cli
 RUN adduser -D -H -g "" -h "$(pwd)" -u "$user_id" "$user_name"
-RUN chown -R "$user_id":"$user_id" "$(pwd)"
+RUN chown -R "$user_id":"$user_id" "$(pwd)" /klangrausch_modules 
 RUN apk del shadow
 ENV NODE_PATH=/klangrausch_modules/node_modules
 
