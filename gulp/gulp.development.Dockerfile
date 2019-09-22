@@ -42,4 +42,4 @@ FROM container_user
 COPY --from=builder \
   /klangrausch/node_modules /klangrausch_modules/node_modules
 
-ENTRYPOINT ["gulp", "watch"]
+ENTRYPOINT ["gulp"]
