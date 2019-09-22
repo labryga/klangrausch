@@ -34,3 +34,4 @@ services:
       - ../statifiles/css/:/staticfiles/css/
       - ../statifiles/js/:/staticfiles/js/
       - ../statifiles/img/:/staticfiles/img/
+    command: "watch"
