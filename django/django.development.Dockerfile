@@ -1,27 +1,22 @@
 FROM python:3.7-alpine as base 
 
 FROM base as builder
-
 RUN mkdir /install 
 WORKDIR /install
 COPY requierments_development.txt .
-
 ENV PYTHONDONTWRITEBYTECODE = 1
 ENV PYTHONUNBUFFERED = 1
 RUN apk update && apk add --no-cache --virtual \
-    build-deps gcc python3-dev musl-dev postgresql-dev && \
-    pip install --install-option="--prefix=/install" \
+    build-deps gcc libc-dev linux-headers postgresql-dev && \
+    pip install --prefix="/install" \
     -r requierments_development.txt
+RUN apk del postgresql-dev build-deps gcc
 
-RUN apk del build-deps python3-dev gcc musl-dev \
-    postgresql-dev
 
 FROM base
-
 COPY --from=builder /install /usr/local
 ARG host_user_name
 ARG host_user_id
-
 ENV user_name=$host_user_name
 ENV user_id=$host_user_id
 
