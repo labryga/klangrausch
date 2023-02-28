@@ -23,3 +23,4 @@ RUN apk update && apk add --virtual --no-cache shadow && \
   apk del shadow
 
 # ENV NODE_PATH=/klangrausch_modules/node_modules
+USER "$user_name"
