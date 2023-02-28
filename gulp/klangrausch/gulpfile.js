@@ -2,4 +2,4 @@ function defaultTask(cb) {
   cb();
 }
 
-exports.default = defaultTasm
+exports.default = defaultTask
