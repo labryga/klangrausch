@@ -1,4 +1,4 @@
-FROM python:3.7-alpine as base 
+FROM python:alpine3.16 as base 
 
 FROM base as builder
 RUN mkdir /install 
@@ -8,6 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE = 1
 ENV PYTHONUNBUFFERED = 1
 RUN apk update && apk add --no-cache --virtual \
     build-deps gcc libc-dev linux-headers postgresql-dev && \
+    pip install --upgrade pip && \
     pip install --prefix="/install" \
     -r requierments_development.txt
 RUN apk del postgresql-dev build-deps gcc
