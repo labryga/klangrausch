@@ -1,3 +1,3 @@
-FROM nginx:1.16.1-alpine
+FROM nginx:mainline-alpine-slim
 
 RUN mkdir /staticfiles
