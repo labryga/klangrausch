@@ -54,13 +54,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'klangrausch.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DJANGO_POSTGRESQL_DATABASE'),
+        'USER': os.environ.get('DJANGO_POSTGRESQ_LUSER'),
+        'PASSWORD': os.environ.get('DJANGO_POSTGRESQL_PASSWORD'),
+        'HOST': os.environ.get('DJANGO_POSTGRESQL_HOST'),
+        'PORT': os.environ.get('DJANGO_POSTGRESQ_PORT'),
     }
 }
 
