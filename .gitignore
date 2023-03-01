@@ -6,6 +6,8 @@
 !/nginx
 !/gulp
 /gulp/klangrausch/node_modules/
+/gulp/klangrausch/.npm
+
 
 *.pyc
 *.swp
