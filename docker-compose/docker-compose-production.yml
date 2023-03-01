@@ -20,7 +20,7 @@ services:
       - .env.klangrausch_django
     volumes:
       - ../django/klangrausch/:/klangrausch/
-    command: gunicorn klangrausch.wsgi:application -b 0.0.0.0:8000
+    command: uvicorn klangrausch.asgi:application --host 0.0.0.0
   
 
   klangrausch_postgresql:
