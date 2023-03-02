@@ -8,6 +8,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
+    'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,11 +50,11 @@ WSGI_APPLICATION = 'klangrausch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DJANGO_POSTGRESQL_DATABASE'),
-        'USER': os.environ.get('DJANGO_POSTGRESQ_LUSER'),
+        'NAME':     os.environ.get('DJANGO_POSTGRESQL_DATABASE'),
+        'USER':     os.environ.get('DJANGO_POSTGRESQ_LUSER'),
         'PASSWORD': os.environ.get('DJANGO_POSTGRESQL_PASSWORD'),
-        'HOST': os.environ.get('DJANGO_POSTGRESQL_HOST'),
-        'PORT': os.environ.get('DJANGO_POSTGRESQ_PORT'),
+        'HOST':     os.environ.get('DJANGO_POSTGRESQL_HOST'),
+        'PORT':     os.environ.get('DJANGO_POSTGRESQ_PORT'),
     }
 }
 
