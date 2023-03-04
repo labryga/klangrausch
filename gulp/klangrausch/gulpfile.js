@@ -1,5 +1,2 @@
-function defaultTask(cb) {
-  cb();
-}
+const {src, dest} = require("gulp");
 
-exports.default = defaultTask

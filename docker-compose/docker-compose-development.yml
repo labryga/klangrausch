@@ -25,12 +25,12 @@ services:
     image: postgres:alpine3.17
     env_file:
       - .env.klangrausch.postgresql
-  #
-  #
-  # klangrausch_gulp:
-  #   image: gulp_node_alpine:10.16.3
-  #   volumes:
-  #     - ../gulp/klangrausch/:/klangrausch/
+
+
+  klangrausch_gulp:
+    image: gulp_node_alpine:18.14.2
+    volumes:
+      - ../gulp/klangrausch/:/klangrausch/
   #     - ../statifiles/css/:/staticfiles/css/
   #     - ../statifiles/js/:/staticfiles/js/
   #     - ../statifiles/img/:/staticfiles/img/
