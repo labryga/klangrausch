@@ -18,6 +18,7 @@ services:
       - .env.klangrausch.django
     volumes:
       - ../django/klangrausch/:/klangrausch/
+      - ../staticfiles/:/staticfiles/
     command: uvicorn klangrausch.asgi:application --host 0.0.0.0
   
 
