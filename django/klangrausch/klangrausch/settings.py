@@ -92,14 +92,16 @@ USE_TZ = True
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 # STATIC_URL = '/static/'
-STATIC_URL = '/'
+STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 STATICFILE_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
-# STATICFILES_DIRS = [
-#     ('js', os.path.join(BASE_DIR, 'staticfiles', 'js', 'production')),
-#     ('css', os.path.join(BASE_DIR, 'staticfiles', 'css', 'production'))
+STATICFILES_DIRS = [
+    ('js', os.path.join(PROJECT_DIR, 'staticfiles', 'js')),
+    ('css', os.path.join(PROJECT_DIR, 'staticfiles', 'css'))
+]

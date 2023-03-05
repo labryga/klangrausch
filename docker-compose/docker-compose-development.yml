@@ -10,6 +10,7 @@ services:
       - "80:80"
     volumes:
       - ../nginx/conf.d/:/etc/nginx/conf.d/
+      - ../staticfiles/:/staticfiles/
 
 
   klangrausch_django:
@@ -36,3 +37,4 @@ services:
   #     - ../statifiles/js/:/staticfiles/js/
   #     - ../statifiles/img/:/staticfiles/img/
   #   command: "watch"
+  #

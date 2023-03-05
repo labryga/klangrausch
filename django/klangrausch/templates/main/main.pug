@@ -1,12 +1,15 @@
+{% load static %}
 !!! 5
 
 html
   head
     title= "klangrausch"
-
+    link(href="{% static 'css/main.css' %}", rel="stylesheet")
+    script(src="{% static 'js/main.js' %}")
   body
     p hier bin ich  
     
     
     
+
 
