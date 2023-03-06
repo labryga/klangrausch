@@ -1,8 +1,8 @@
 /*
 !/docker-compose
 !/django
-/django/.cache
-/django/.local
+.cache/
+.local/
 !/nginx
 
 !/gulp
