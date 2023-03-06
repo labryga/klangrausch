@@ -4,10 +4,12 @@
 /django/.cache
 /django/.local
 !/nginx
+
 !/gulp
 /gulp/klangrausch/node_modules/
 /gulp/klangrausch/.npm
 
+/webpack
 
 *.pyc
 *.swp
