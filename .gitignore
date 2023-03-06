@@ -10,6 +10,8 @@
 /gulp/klangrausch/.npm
 
 !/webpack
+node_modules/
+.npm/
 
 *.pyc
 *.swp
