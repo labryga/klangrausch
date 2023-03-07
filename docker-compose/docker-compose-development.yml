@@ -16,7 +16,7 @@ services:
   klangrausch_django:
     image: django_alpine3.16:3.2.18
     env_file:
-      - .env.klangrausch.django
+      - .env.klangrausch
     volumes:
       - ../django/klangrausch/:/klangrausch/
       - ../staticfiles/:/staticfiles/
@@ -26,7 +26,7 @@ services:
   klangrausch_postgresql:
     image: postgres:alpine3.17
     env_file:
-      - .env.klangrausch.postgresql
+      - .env.klangrausch
 
 
   # klangrausch_gulp:
