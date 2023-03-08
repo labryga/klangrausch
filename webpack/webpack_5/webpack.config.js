@@ -5,4 +5,4 @@ module.exports = {
     filename: 'production.js',
     path:     '/staticfiles/js/production/'
   }
-}
+};
