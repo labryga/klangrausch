@@ -6,8 +6,10 @@ ARG host_user_id
 ENV user_name=$host_user_name
 ENV user_id=$host_user_id
 
-RUN apk update && apk add --virtual --no-cache shadow && \
-  usermod -u 2000 node && groupmod -g 2000 node && \
-  adduser -D -g "" -u "$user_id" "$user_name"
+RUN mkdir /klangrausch /staticfiles && \
+    apk update && apk add --virtual --no-cache shadow && \
+    usermod -u 2000 node && groupmod -g 2000 node && \
+    adduser -D -g "" -u "$user_id" "$user_name" && \
+    chown -R "$user:$user_id" /klangrausch /staticfiles
 
 USER "$user_name"

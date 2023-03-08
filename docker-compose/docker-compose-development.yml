@@ -32,7 +32,7 @@ services:
     image: webpack_5:node_18.14.2-alpine3.17
     tty: true
     volumes:
-      - ../webpack/webpack_5/
+      - ../webpack/webpack_5/:/klangrausch
       - ../statifiles/css/:/staticfiles/css/
       - ../statifiles/js/:/staticfiles/js/
       - ../statifiles/img/:/staticfiles/img/
