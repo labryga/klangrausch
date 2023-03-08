@@ -33,7 +33,7 @@ services:
     tty: true
     volumes:
       - ../webpack/webpack_5/:/klangrausch
-      - ../statifiles/css/:/staticfiles/css/
-      - ../statifiles/js/:/staticfiles/js/
-      - ../statifiles/img/:/staticfiles/img/
+      - ../staticfiles/css/:/staticfiles/css/
+      - ../staticfiles/js/:/staticfiles/js/
+      - ../staticfiles/img/:/staticfiles/img/
 
