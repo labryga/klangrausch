@@ -1,3 +1,8 @@
 module.exports = {
-    entry: '/staticfiles/js/main.js',
+  mode:  'none',
+  entry: '/staticfiles/js/main.js',
+  output: {
+    filename: 'production.js',
+    path:     '/staticfiles/js/production/'
+  }
 }
