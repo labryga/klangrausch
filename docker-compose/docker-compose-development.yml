@@ -27,14 +27,13 @@ services:
     image: postgres:alpine3.17
     env_file:
       - .env.klangrausch
+  
+  klangrausch_webpack:
+    image: webpack_5:node_18.14.2-alpine3.17
+    tty: true
+    volumes:
+      - ../webpack/webpack_5/
+      - ../statifiles/css/:/staticfiles/css/
+      - ../statifiles/js/:/staticfiles/js/
+      - ../statifiles/img/:/staticfiles/img/
 
-
-  # klangrausch_gulp:
-  #   image: gulp_node_alpine:18.14.2
-  #   volumes:
-  #     - ../gulp/klangrausch/:/klangrausch/
-  #     - ../statifiles/css/:/staticfiles/css/
-  #     - ../statifiles/js/:/staticfiles/js/
-  #     - ../statifiles/img/:/staticfiles/img/
-  #   command: "watch"
-  #
