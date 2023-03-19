@@ -3,4 +3,3 @@ django==3.2.18
 uvicorn
 gunicorn
 pypugjs
-django-webpack-loader

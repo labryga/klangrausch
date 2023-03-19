@@ -28,11 +28,12 @@ services:
     env_file:
       - .env.klangrausch
   
+
   klangrausch_webpack:
     image: webpack_5:node_18.14.2-alpine3.17
     tty: true
     volumes:
-      - ../webpack/webpack_5/:/klangrausch
+      - ../webpack/webpack_5/:/klangrausch_webpack_5
       - ../staticfiles/css/:/staticfiles/css/
       - ../staticfiles/js/:/staticfiles/js/
       - ../staticfiles/img/:/staticfiles/img/
