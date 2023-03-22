@@ -1,8 +1,6 @@
-body {Background-color: royalblue;
-      position:: relative;
+body {Background-color: dodgerblue;
+      color: moccasin;
+      position: relative;
       margin: 0px;
       padding: 40px;
 }
-
-h4 {Background-color: skyblue}
-
