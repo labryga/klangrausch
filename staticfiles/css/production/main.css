@@ -1,6 +1,14 @@
-body {Background-color: dodgerblue;
-      color: moccasin;
-      position: relative;
-      margin: 0px;
-      padding: 40px;
+body {Background-color: lightblue;
+      color: darkolivegreen;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+#leinwand {
+  display: block;
+  background: lightsalmon;
+  margin: 100px auto;
 }
