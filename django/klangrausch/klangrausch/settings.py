@@ -15,8 +15,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'django.contrib.staticfiles',
+    'livereload',
+    'django.contrib.staticfiles',
 ]
+
+# LIVERELOAD_HOST = '0.0.0.0'
+# LIVERELOAD_PORT = 80
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
