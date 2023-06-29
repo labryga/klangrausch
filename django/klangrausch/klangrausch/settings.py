@@ -106,6 +106,6 @@ STATICFILE_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 STATICFILES_DIRS = [
-    ('js', os.path.join(PROJECT_DIR, 'staticfiles', 'production', 'js')),
-    ('css', os.path.join(PROJECT_DIR, 'staticfiles', 'production', 'css'))
+    ('js', os.path.join(PROJECT_DIR, 'js')),
+    ('css', os.path.join(PROJECT_DIR, 'css'))
 ]
