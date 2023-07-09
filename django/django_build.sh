@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker image build -t django_alpine3.18:3.2.18 \
+docker image build -t django_4.2.3_alpine3.18:python_3.10.12 \
   --build-arg host_user_name=$USER \
   --build-arg host_user_id=$(id -u) \
   -f ./django.development.Dockerfile .

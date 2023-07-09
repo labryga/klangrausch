@@ -14,7 +14,7 @@ services:
 
 
   klangrausch_django:
-    image: django_alpine3.16:3.2.18
+    image: django_4.2.3_alpine3.18:python_3.10.12
     env_file:
       - .env.klangrausch
     volumes:

@@ -1,12 +1,10 @@
 {% load static %}
-{% load livereload_tags %}
 !!! 5
 
 html
   head
     title= "klangrausch mit wert"
     link(href="{% static 'css/production/main.css' %}", rel="stylesheet")
-    {% livereload_script %}
   body
     canvas(id="leinwand", width="700", height="700")
 

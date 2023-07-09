@@ -1,29 +1,17 @@
-FROM python:alpine3.18 as base 
+FROM python:3.10.12-alpine3.18
 
-FROM base as builder
-RUN mkdir /install 
-WORKDIR /install
-COPY requierments_development.txt .
-ENV PYTHONDONTWRITEBYTECODE = 1
-ENV PYTHONUNBUFFERED = 1
-RUN apk update && apk add --no-cache --virtual \
-    build-deps gcc libc-dev linux-headers postgresql-dev && \
-    pip install --upgrade pip && \
-    pip install --prefix="/install" \
-    -r requierments_development.txt
-RUN apk del postgresql-dev build-deps gcc
-
-
-FROM base
-COPY --from=builder /install /usr/local
 ARG host_user_name
 ARG host_user_id
 ENV user_name=$host_user_name
 ENV user_id=$host_user_id
 
 WORKDIR /klangrausch
-
-RUN apk --no-cache --virtual add vim libpq shadow && \
+COPY requierments_development.txt .
+ENV PYTHONDONTWRITEBYTECODE = 1
+ENV PYTHONUNBUFFERED = 1
+RUN pip install --upgrade pip && \
+    pip install -r requierments_development.txt && \
+    apk --no-cache --virtual add vim libpq shadow && \
     adduser -D -H -g "" \
     -u "$user_id" \
     -h "$(pwd)" \
