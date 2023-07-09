@@ -1,4 +1,4 @@
-FROM python:alpine3.16 as base 
+FROM python:alpine3.18 as base 
 
 FROM base as builder
 RUN mkdir /install 
@@ -23,7 +23,7 @@ ENV user_id=$host_user_id
 
 WORKDIR /klangrausch
 
-RUN apk --no-cache --virtual add libpq shadow && \
+RUN apk --no-cache --virtual add vim libpq shadow && \
     adduser -D -H -g "" \
     -u "$user_id" \
     -h "$(pwd)" \

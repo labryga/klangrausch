@@ -1,6 +1,6 @@
-psycopg2
-django==3.2.18
+psycopg2-binary
+django==3.2.20
 uvicorn
 gunicorn
 pypugjs
-django-livereload-server
+django-browser-reload
