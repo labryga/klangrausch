@@ -19,12 +19,16 @@ function lineObjects (d) {
   this.division_factor = d;
   this.moveToX = (canvas_width - this.division_factor) + offset_factor;
   this.lineToY = (canvas_height - this.division_factor) + offset_factor;
+  this.speed = 0;
   this.draw = function() {
-
     context.beginPath();
     context.moveTo(this.moveToX, 0);
-    context.lineTo(0, this.lineToY);
+    context.lineTo(this.moveToX - this.speed, this.speed);
     context.stroke();
+    if (this.speed <= 700) {
+      this.speed += 2;
+      requestAnimationFrame(this.draw.bind(this))
+    }
     };
 }
 
