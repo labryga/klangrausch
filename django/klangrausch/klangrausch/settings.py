@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_browser_reload',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -22,6 +23,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 ROOT_URLCONF = 'klangrausch.urls'
 TEMPLATES = [
@@ -54,7 +56,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':     os.environ.get('DJANGO_POSTGRESQL_DATABASE'),
-        'USER':     os.environ.get('DJANGO_POSTGRESQ_LUSER'),
+        'USER':     os.environ.get('DJANGO_POSTGRESQ_USER'),
         'PASSWORD': os.environ.get('DJANGO_POSTGRESQL_PASSWORD'),
         'HOST':     os.environ.get('DJANGO_POSTGRESQL_HOST'),
         'PORT':     os.environ.get('DJANGO_POSTGRESQ_PORT'),
@@ -84,12 +86,11 @@ MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 # STATIC_URL = '/static/'
 STATIC_URL = '/staticfiles/'
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 STATICFILE_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, 'staticfiles', 'js'),
-    os.path.join(PROJECT_DIR, 'staticfiles', 'css')
+    os.path.join(PROJECT_DIR, 'staticfiles'),
 ]

@@ -2,25 +2,27 @@ version: "3.9"
 
 services:
 
-  klangrausch_nginx:
-    build:
-      context: ../nginx/
-      dockerfile: nginx.development.Dockerfile
-    ports:
-      - "80:80"
-    volumes:
-      - ../nginx/conf.d/:/etc/nginx/conf.d/
-      - ../staticfiles/:/staticfiles/
+  # klangrausch_nginx:
+  #   build:
+  #     context: ../nginx/
+  #     dockerfile: nginx.development.Dockerfile
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ../nginx/conf.d/:/etc/nginx/conf.d/
+  #     - ../staticfiles/:/staticfiles/
 
 
   klangrausch_django:
     image: django_4.2.3_alpine3.18:python_3.10.12
+    ports:
+      - "80:8000"
     env_file:
       - .env.klangrausch
     volumes:
       - ../django/klangrausch/:/klangrausch/
       - ../staticfiles/:/staticfiles/
-    command: uvicorn klangrausch.asgi:application --host 0.0.0.0
+    command: python manage.py runserver 0.0.0.0:8000
   
 
   klangrausch_postgresql:
@@ -29,12 +31,12 @@ services:
       - .env.klangrausch
   
 
-  klangrausch_webpack:
-    image: webpack_5:node_18.14.2-alpine3.17
-    tty: true
-    volumes:
-      - ../webpack/webpack_5/:/klangrausch_webpack_5
-      - ../staticfiles/css/:/files/staticfiles/css/
-      - ../staticfiles/js/:/files/staticfiles/js/
-      - ../staticfiles/img/:/files/staticfiles/img/
-
+  # klangrausch_webpack:
+  #   image: webpack_5:node_18.14.2-alpine3.17
+  #   tty: true
+  #   volumes:
+  #     - ../webpack/webpack_5/:/klangrausch_webpack_5
+  #     - ../staticfiles/css/:/files/staticfiles/css/
+  #     - ../staticfiles/js/:/files/staticfiles/js/
+  #     - ../staticfiles/img/:/files/staticfiles/img/
+  #

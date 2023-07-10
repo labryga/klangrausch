@@ -1,28 +1,41 @@
+const canvas  = document.getElementById('leinwand');
+const context = canvas.getContext('2d');
 
-const wand = document.getElementById("leinwand");
-const c = wand.getContext("2d");
-const wand_w = wand.offsetWidth, wand_h = wand.offsetHeight;
-c.translate(wand_w/2, wand_h/2);
-c.save();
+const canvas_width = canvas.offsetWidth;
+const canvas_height = canvas.offsetHeight;
 
-function sun () {
-  c.lineWidth = 2;
-  for (let i=1; i<97; i++ ) {
-      c.rotate((2 * Math.PI / 96) * i);
-      c.beginPath();
-      if (i%2 == 0) {
-          c.moveTo(0, Math.random() * 90 + 170);
-          c.lineTo(0, wand_h/2 - 20);
-      } else {
-          c.moveTo(0, 270);
-          c.lineTo(0, wand_h/2 - 20);
-      }
-      c.stroke();
-      c.restore();
-  }
-  c.clearRect(0, 0, wand.width, wand.height);
+context.lineWidth = 2;
+context.strokeStyle = '#FAD807';
+
+// let i = 1;
+
+// function lineAnimation () {
+//   if (i>700) {
+//     cancelAnimationFrame(lineAnimation);
+//   } else {
+//     i += 2;
+//     context.clearRect(0,0,canvas.width,canvas.height);
+//     context.beginPath();
+//     context.moveTo(0,0);
+//     context.lineTo(i+10,i+10);
+//     context.stroke();
+//     let myReq = requestAnimationFrame(lineAnimation);
+//   }
+// }
+//
+// lineAnimation();
+
+let division_factor = canvas_width/10;
+for (d=division_factor; d<canvas_width; d+=division_factor) {
+
+  context.beginPath();
+  context.moveTo(0, d);
+  context.lineTo(d,0);
+  context.stroke();
+
+  context.beginPath();
+  context.moveTo(d, canvas_height);
+  context.lineTo(canvas_width,d);
+  context.stroke();
+
 }
-
-// setInterval(sun, 1000);
-
-
