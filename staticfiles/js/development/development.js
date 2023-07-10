@@ -4,7 +4,7 @@ const context = canvas.getContext('2d');
 const canvas_width = canvas.offsetWidth;
 const canvas_height = canvas.offsetHeight;
 
-context.lineWidth = 2;
+context.lineWidth = 0.5;
 context.strokeStyle = '#FAD807';
 
 let itemsArray = [];
@@ -19,14 +19,14 @@ function lineObjects (d) {
   this.division_factor = d;
   this.moveToX = (canvas_width - this.division_factor) + offset_factor;
   this.lineToY = (canvas_height - this.division_factor) + offset_factor;
-  this.speed = 0;
+  this.speed = Math.random() * 25;
   this.draw = function() {
     context.beginPath();
     context.moveTo(this.moveToX, 0);
     context.lineTo(this.moveToX - this.speed, this.speed);
     context.stroke();
     if (this.speed <= 700) {
-      this.speed += 2;
+      this.speed += 3;
       requestAnimationFrame(this.draw.bind(this))
     }
     };
