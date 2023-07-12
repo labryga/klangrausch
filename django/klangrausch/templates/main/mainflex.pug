@@ -1,0 +1,20 @@
+{% load static %}
+!!! 5
+
+html
+  head
+    title= "mainflex"
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(href="{% static 'css/production/mainflex.css' %}", rel="stylesheet")
+  body
+    div(class="flex_container")
+      anzahl = [i for i in range(39)]
+      for i in anzahl
+        div(class="container_item")= i
+
+    script(src="{% static 'js/development/mainflex.js' %}")
+    
+    
+
+
+
