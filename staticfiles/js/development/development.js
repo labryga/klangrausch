@@ -2,10 +2,10 @@ let canvas;
 let context;
 const factor = 0.4;
 
-window.onload = function() {
-  canvas = document.getElementById('leinwand');
-  context = canvas.getContext('2d');
-  console.log(context);
+// window.onload = function() {
+//   canvas = document.getElementById('leinwand');
+//   context = canvas.getContext('2d');
+//   console.log(context);
 
   // function setCanvasSize (factor_x, factor_y) {
   //   canvas.width  = window.innerWidth * factor_x;
@@ -13,7 +13,7 @@ window.onload = function() {
   // }
   //
   // setCanvasSize(factor, factor);
-}
+// }
 
 // function setSize(event) {
 //   canvas.width  = event.target.screen.availWidth * factor;
@@ -26,7 +26,7 @@ window.onload = function() {
 // });
 //
 
-context.beginPath();
+// context.beginPath();
 
 // context.lineWidth = 0.5;
 // context.strokeStyle = '#FAD807';
