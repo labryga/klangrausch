@@ -20,15 +20,15 @@ body {Background-color: #34495E;
   /* left: 0; */
   display: block;
   margin: 0px auto;
-  background: darkblue; 
+  background: crimson; 
   border: 2px solid white;
 }
 
 .test_div {
   overflow-y: scroll;
-  background-color: gold;
-  margin: 50px;
-  border: solid 20px maroon;
+  background-color: darkseagreen;
+  margin: 50px auto;
+  border: solid 20px linen;
   padding: 20px;
   width:  300px;
   height: 300px;
