@@ -1,3 +1,30 @@
+let tooltip = document.createElement('div');
+tooltip.className = 'tooltip';
+
+
+document.addEventListener('mouseover', function(event){
+  let zielobjekt = event.target;
+  if (zielobjekt.tagName == 'BUTTON') {document.body.append(tooltip)}
+  let zielobjekt_koordinaten = zielobjekt.getBoundingClientRect();
+  eintrag.innerHTML = zielobjekt_koordinaten.top;
+  tooltip.innerHTML = zielobjekt.dataset.wert;
+  tooltip.style.width = zielobjekt_koordinaten.width + 'px';
+
+  tooltip.style.top =   scrollY + zielobjekt_koordinaten.top
+                      - tooltip.clientHeight - 5 + 'px';
+
+  if (tooltip.getBoundingClientRect().top < 0) {
+    tooltip.style.top =   scrollY + zielobjekt_koordinaten.bottom + 5 + 'px'; }
+
+  tooltip.style.left = zielobjekt_koordinaten.x + 'px';
+});
+
+document.addEventListener('mouseout', function(event) {
+  let zielobjekt = event.target;
+  if (zielobjekt.tagName == 'BUTTON') {tooltip.remove()}
+});
+
+
 let canvas;
 let context;
 const factor = 0.4;

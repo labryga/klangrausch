@@ -5,13 +5,13 @@ html
   head
     title= "klangrausch"
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(href="{% static 'css/production/main.css' %}", rel="stylesheet")
+    link(href="{% static 'css/development/development.css' %}", rel="stylesheet")
+
   body
-    div(class="test_div")
-      liste = range(1000)
-      for eintrag in liste
-        a(href="")"{{eintrag}} ein_Satz_mit_vielen_Begriffen" 
-        br
+    div(class="main")
+      p#eintrag= "eintrag"
+      button(data-wert="beschreibung eins")= "knopf_1"
+      button(data-wert="definition werte")=  "knopf_1"
 
     script(src="{% static 'js/development/development.js' %}")
     
